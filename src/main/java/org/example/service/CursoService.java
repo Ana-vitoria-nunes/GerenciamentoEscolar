@@ -1,10 +1,11 @@
 package org.example.service;
-
 import org.example.model.Validacoes;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import static org.example.connection.Connect.fazerConexao;
+
 public class CursoService {
     Validacoes validacoes=new Validacoes();
     private Statement statement;
@@ -16,7 +17,6 @@ public class CursoService {
             e.printStackTrace();
         }
     }
-
     public void inserirCurso(String nomeCurso, int professorResponsavel) {
         if (!validacoes.validarProfessor(professorResponsavel)) {
             System.out.println("ID de professor inválido!");
@@ -31,7 +31,6 @@ public class CursoService {
             e.printStackTrace();
         }
     }
-
     public void consultarTodosCursos() {
         String sql = "SELECT Cursos.ID, Cursos.NomeCurso, Professores.Nome AS NomeProfessor " +
                 "FROM Cursos " +
@@ -53,20 +52,6 @@ public class CursoService {
             int rowCount = statement.executeUpdate(sql);
             if (rowCount > 0) {
                 System.out.println("Curso com ID " + id + " foi alterado com sucesso.");
-            } else {
-                System.out.println("Curso com ID " + id + " não encontrado.");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void deletarCurso(int id) {
-        String sql = "DELETE FROM Cursos WHERE ID = " + id;
-        try {
-            int rowCount = statement.executeUpdate(sql);
-            if (rowCount > 0) {
-                System.out.println("Curso com ID " + id + " foi deletado com sucesso.");
             } else {
                 System.out.println("Curso com ID " + id + " não encontrado.");
             }

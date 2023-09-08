@@ -13,8 +13,7 @@ public class MatriculaView {
     CursoService cursoService=new CursoService();
     InputUser inputUser=new InputUser();
     public void MenuMatricula() {
-        System.out.println("\nBem-vindo(a) ao menu da Matricula\n");
-        System.out.println("Digite uma das seguinte opções");
+        System.out.println("\nBem-vindo(a) ao menu da Matricula");
         System.out.println("0 - Voltar ao menu principal.");
         System.out.println("1 - Fazer Matricula.");
         System.out.println("2 - Deletar Matricula.");

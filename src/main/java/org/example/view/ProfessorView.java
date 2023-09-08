@@ -9,13 +9,11 @@ public class ProfessorView {
     ProfessorService professorService=new ProfessorService();
     InputUser inputUser=new InputUser();
     public void MenuProfessor() {
-        System.out.println("\nBem-vindo(a) ao menu do Professor\n");
-        System.out.println("Digite uma das seguinte opções");
+        System.out.println("\nBem-vindo(a) ao menu do Professor");
         System.out.println("0 - Voltar ao menu principal.");
         System.out.println("1 - Adicinar Professor.");
-        System.out.println("2 - Deletar Professor.");
-        System.out.println("3 - Alterar informações Professor.");
-        System.out.println("4 - Listar Professor.");
+        System.out.println("2 - Alterar informações Professor.");
+        System.out.println("3 - Listar Professor.");
     }
     public void caseProfessor() {
         int option;
@@ -26,9 +24,8 @@ public class ProfessorView {
             switch (option) {
                 case 0 -> new MenuView();
                 case 1 -> addProfessor();
-                case 2 -> deleteProfessor();
-                case 3 -> alterarInformacoes();
-                case 4 -> professorService.consultarTodosProfessores();
+                case 2 -> alterarInformacoes();
+                case 3 -> professorService.consultarTodosProfessores();
                 default -> System.out.println("Opção inválida, tente novamente!");
             }
         } while (option != 0);
@@ -40,16 +37,9 @@ public class ProfessorView {
         professorModel.setDisciplina(disciplina);
         professorService.inserirProfessor(professorModel.getNomeProf(),professorModel.getDisciplina());
     }
-
-    private void deleteProfessor() {
-        professorService.consultarTodosProfessores();
-        int id = inputUser.readIntFromUser("Qual o ID do Aluno que deseja deletar: ");
-        professorService.deletarProfessor(id);
-    }
-
     private void alterarInformacoes() {
         professorService.consultarTodosProfessores();
-        int id = inputUser.readIntFromUser("Qual o ID do Aluno que deseja deletar: ");
+        int id = inputUser.readIntFromUser("Qual o ID do Professor que deseja Alterar: ");
         String disciplina = inputUser.readStringFromUser("Qual a novo disciplina: ");
         professorModel.setDisciplina(disciplina);
         professorService.alterarProfessor(id,professorModel.getDisciplina());

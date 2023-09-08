@@ -1,5 +1,4 @@
 package org.example.service;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,7 +16,6 @@ public class AlunoService {
             e.printStackTrace();
         }
     }
-
     public void inserirAluno(String nome, LocalDate dataNascimento, String endereco) {
         String sql = "INSERT INTO alunos (Nome, DataNascimento, Endereco) VALUES ('" +
                 nome + "', '" + dataNascimento + "', '" + endereco + "')";
@@ -28,7 +26,6 @@ public class AlunoService {
             e.printStackTrace();
         }
     }
-
     public void listarAlunos() {
         String sql = "SELECT * FROM Alunos";
         try {
@@ -43,27 +40,12 @@ public class AlunoService {
             e.printStackTrace();
         }
     }
-
     public void alterarAluno(int id, String endereco) {
         String sql = "UPDATE Alunos SET Endereco = '" + endereco + "' WHERE ID = " + id;
         try {
             int rowCount = statement.executeUpdate(sql);
             if (rowCount > 0) {
                 System.out.println("Aluno com ID " + id + " foi alterado com sucesso.");
-            } else {
-                System.out.println("Aluno com ID " + id + " não encontrado.");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void deletarAluno(int id) {
-        String sql = "DELETE FROM Alunos WHERE ID = " + id;
-        try {
-            int rowCount = statement.executeUpdate(sql);
-            if (rowCount > 0) {
-                System.out.println("Aluno com ID " + id + " foi deletado com sucesso.");
             } else {
                 System.out.println("Aluno com ID " + id + " não encontrado.");
             }

@@ -14,8 +14,7 @@ public class MenuView {
     CursoService cursoService=new CursoService();
     EscolaService escolaService=new EscolaService();
     public void MenuPrincipal() {
-        System.out.println("Bem-vindo(a) ao menu Principal\n");
-        System.out.println("Digite uma das seguinte opções");
+        System.out.println("\nBem-vindo(a) ao menu Principal");
         System.out.println("0 - Sair.");
         System.out.println("1 - Consultar opções para Aluno.");
         System.out.println("2 - Consultar opções para Curso.");
@@ -30,7 +29,7 @@ public class MenuView {
             option = inputUser.readIntFromUser("Qual opção você deseja: ");
 
             switch (option) {
-                case 0 -> new MenuView();
+                case 0 -> System.out.println("Saindo do sistema...");
                 case 1 -> alunoView.caseAluno();
                 case 2 -> cursoView.caseCurso();
                 case 3 -> professorView.caseProfessor();
@@ -41,7 +40,7 @@ public class MenuView {
         } while (option != 0);
     }
     public void MenuConsulta() {
-        System.out.println("\nBem-vindo(a) ao menu da Consulta\n");
+        System.out.println("\nBem-vindo(a) ao menu da Consulta");
         System.out.println("Digite uma das seguinte opções");
         System.out.println("0 - Voltar ao menu principal.");
         System.out.println("1 - Consultar alunos matriculados em um curso específico.");

@@ -10,15 +10,12 @@ public class AlunoView {
     AlunoModel alunoModel=new AlunoModel();
     InputUser inputUser=new InputUser();
     public void MenuAluno() {
-        System.out.println("\nBem-vindo(a) ao menu do Aluno\n");
-        System.out.println("Digite uma das seguinte opções");
+        System.out.println("\nBem-vindo(a) ao menu do Aluno");
         System.out.println("0 - Voltar ao menu principal.");
         System.out.println("1 - Adicinar Aluno.");
-        System.out.println("2 - Deletar Aluno.");
-        System.out.println("3 - Alterar informações Aluno.");
-        System.out.println("4 - Listar Alunos.");
+        System.out.println("2 - Alterar informações Aluno.");
+        System.out.println("3 - Listar Alunos.");
     }
-
     public void caseAluno() {
         int option;
         do {
@@ -28,9 +25,8 @@ public class AlunoView {
             switch (option) {
                 case 0 -> new MenuView();
                 case 1 -> addAluno();
-                case 2 -> deleteAluno();
-                case 3 -> alterarInformacoes();
-                case 4 -> alunoService.listarAlunos();
+                case 2 -> alterarInformacoes();
+                case 3 -> alunoService.listarAlunos();
                 default -> System.out.println("Opção inválida, tente novamente!");
             }
         } while (option != 0);
@@ -45,12 +41,6 @@ public class AlunoView {
         alunoModel.setDataNascimento(data);
         alunoModel.setEndereco(endereco);
         alunoService.inserirAluno(alunoModel.getNome(),alunoModel.getDataNascimento(),alunoModel.getEndereco());
-    }
-
-    private void deleteAluno() {
-        alunoService.listarAlunos();
-        int id = inputUser.readIntFromUser("Qual o ID do Aluno que deseja deletar: ");
-        alunoService.deletarAluno(id);
     }
     private void alterarInformacoes() {
         alunoService.listarAlunos();

@@ -4,11 +4,9 @@ import java.util.Scanner;
 
 public class InputUser {
     private final Scanner scanner;
-
     public InputUser() {
         scanner = new Scanner(System.in);
     }
-
     public int readIntFromUser(String mensagem) {
         while (true) {
             System.out.println(mensagem);
@@ -20,7 +18,6 @@ public class InputUser {
             }
         }
     }
-
     public String readStringFromUser(String mensagem) {
         while (true) {
             System.out.println(mensagem);

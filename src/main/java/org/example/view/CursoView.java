@@ -10,13 +10,11 @@ public class CursoView {
     ProfessorService professorService=new ProfessorService();
     InputUser inputUser =new InputUser();
     public void MenuCurso() {
-        System.out.println("\nBem-vindo(a) ao menu do Curso\n");
-        System.out.println("Digite uma das seguinte opções");
+        System.out.println("\nBem-vindo(a) ao menu do Curso");
         System.out.println("0 - Voltar ao menu principal.");
         System.out.println("1 - Adicinar Curso.");
-        System.out.println("2 - Deletar Curso.");
-        System.out.println("3 - Alterar informações Curso.");
-        System.out.println("4 - Listar Curso.");
+        System.out.println("2 - Alterar informações Curso.");
+        System.out.println("3 - Listar Curso.");
     }
     public void caseCurso() {
         int option;
@@ -27,9 +25,8 @@ public class CursoView {
             switch (option) {
                 case 0 -> new MenuView();
                 case 1 -> addCurso();
-                case 2 -> deleteCurso();
-                case 3 -> alterarInformacoes();
-                case 4 -> cursoService.consultarTodosCursos();
+                case 2 -> alterarInformacoes();
+                case 3 -> cursoService.consultarTodosCursos();
                 default -> System.out.println("Opção inválida, tente novamente!");
             }
         } while (option != 0);
@@ -40,11 +37,6 @@ public class CursoView {
         int idProf= inputUser.readIntFromUser("Qual o id do professor desse curso");
         cursoModel.setNomeCurso(nome);
         cursoService.inserirCurso(cursoModel.getNomeCurso(),idProf);
-    }
-    private void deleteCurso() {
-        cursoService.consultarTodosCursos();
-        int id = inputUser.readIntFromUser("Qual o ID do Curso que deseja deletar: ");
-        cursoService.deletarCurso(id);
     }
     private void alterarInformacoes() {
         cursoService.consultarTodosCursos();

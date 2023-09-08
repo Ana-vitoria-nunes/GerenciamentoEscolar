@@ -1,7 +1,5 @@
 package org.example.model;
-
 import org.example.connection.Connect;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -66,7 +64,6 @@ public class Validacoes {
 
         return false;
     }
-
     public boolean ValidarAlunoMatriculaCurso(int idAluno, int idCurso) {
         String sql = "SELECT COUNT(*) FROM Matriculas WHERE IDAluno = ? AND IDCurso = ?";
 

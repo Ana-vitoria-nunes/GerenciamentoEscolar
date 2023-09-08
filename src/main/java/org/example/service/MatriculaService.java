@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-
 import static org.example.connection.Connect.fazerConexao;
 
 public class MatriculaService {
@@ -20,7 +19,6 @@ public class MatriculaService {
             e.printStackTrace();
         }
     }
-
     public void inserirMatricula(int idAluno, int idCurso, LocalDate dataMatricula) {
         if (!validacoes.validarAluno(idAluno)) {
             System.out.println("ID de aluno inválido!");
@@ -43,7 +41,6 @@ public class MatriculaService {
             e.printStackTrace();
         }
     }
-
     public void consultarTodasMatriculas() {
         String sql = "SELECT Matriculas.ID, Alunos.Nome AS NomeAluno, Cursos.NomeCurso AS NomeCurso, Matriculas.DataMatricula " +
                 "FROM Matriculas " +
@@ -61,7 +58,6 @@ public class MatriculaService {
             e.printStackTrace();
         }
     }
-
     public void deletarMatricula(int id) {
         String sql = "DELETE FROM Matriculas WHERE ID = " + id;
         try {
